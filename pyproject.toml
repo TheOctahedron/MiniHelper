@@ -1,0 +1,19 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "minihelper"
+version = "0.1.0"
+description = "A simple yet useful CLI-based assistant that provides results via a short command."
+readme = "README.md"
+requires-python = ">=3.8"
+authors = [
+    { name = "Joseph", email = "joseph.octahedron@gmail.com" }
+]
+
+[project.scripts]
+minihelper = "main:main"
+
+[tool.setuptools.packages.find]
+include = ["core*"]
