@@ -13,7 +13,7 @@ Once installed, you can use the tool from anywhere in your terminal:
 minihelper plus 5 3
 # Output: 8
 ```
-
+---
 ### Architecture
 
 ```text
@@ -43,3 +43,12 @@ MiniHelper/
         └── string_ops/      ← String operations (reserved for future)
             └── __init__.py
 ```
+---
+### Facade Pattern
+MiniHelper uses the Facade pattern to keep imports clean and simple.
+
+- `core/operations/arithmetic/__init__.py` — aggregates functions from the files within its directory (e.g., `plus.py`, `minus.py`).
+
+- `core/operations/__init__.py` — collects exports from its subdirectories (e.g., `arithmetic`) into a single interface.
+
+- `core/__init__.py` — the primary facade for the entire core. It exposes all operations (and future modules) to the rest of the application.
