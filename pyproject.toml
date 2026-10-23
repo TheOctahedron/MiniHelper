@@ -15,5 +15,8 @@ authors = [
 [project.scripts]
 minihelper = "main:main"
 
+[tool.setuptools]
+py-modules = ["main"]
+
 [tool.setuptools.packages.find]
-include = ["core*"]
+include = ["core", "data", "core.*", "data.*"]
