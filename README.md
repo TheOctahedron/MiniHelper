@@ -18,30 +18,33 @@ minihelper plus 5 3
 
 ```text
 MiniHelper/
-├── main.py                  ← Entry point (argparse + dispatch)
-├── pyproject.toml           ← pip configuration (allows `minihelper` command)
+├── main.py                  ← CLI entry point (argparse + dispatch)
+├── pyproject.toml           ← Project configuration, dependencies, and pytest setup
 ├── README.md                ← Project documentation
-├── requirements.txt         ← External dependencies
+├── LICENSE                  ← Open-source license (MIT)
+├── .gitignore               ← Git ignore rules (e.g., __pycache__, .venv)
+├── .gitattributes           ← Git line ending normalization
 │
 ├── data/                    ← Data & registries (non-code)
 │   ├── __init__.py          ← Package initializer
 │   └── commands.py          ← COMMANDS dictionary mapping keys to core functions
 │
-└── core/                    ← Core logic
-    ├── __init__.py          ← Facade (aggregates operations via `__all__`)
-    ├── dispatcher.py        ← Routes command name to the correct function
-    └── operations/          ← Actual operation functions
-        ├── __init__.py      ← Exposes subdirectories (arithmetic, etc.)
-        │
-        ├── arithmetic/      ← Math operations
-        │   ├── __init__.py  ← Exposes functions via `__all__`
-        │   ├── plus.py      ← def plus(a, b): return a + b
-        │   ├── minus.py     ← def minus(a, b): return a - b
-        │   ├── multiply.py  ← def multiply(a, b): return a * b
-        │   └── divide.py    ← def divide(a, b): return a / b
-        │
-        └── string_ops/      ← String operations (reserved for future)
-            └── __init__.py
+├── core/                    ← Core logic
+│   ├── __init__.py          ← Primary facade (aggregates operations via `__all__`)
+│   ├── dispatcher.py        ← Routes command name to the correct function
+│   └── operations/          ← Actual operation functions
+│       ├── __init__.py      ← Exposes subdirectories (arithmetic, etc.)
+│       │
+│       ├── arithmetic/      ← Math operations
+│       │   ├── __init__.py  ← Exposes functions via `__all__`
+│       │   ├── plus.py      ← def plus(a, b): return a + b
+│       │   ├── minus.py     ← def minus(a, b): return a - b
+│       │   ├── multiply.py  ← def multiply(a, b): return a * b
+│       │   └── divide.py    ← def divide(a, b): return a / b
+│       │
+│       └── ...              ← Future operation categories (e.g., string_ops)
+│
+└── tests/                   ← Automated tests
 ```
 ---
 ### Facade Pattern
