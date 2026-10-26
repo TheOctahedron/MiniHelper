@@ -1,6 +1,5 @@
-from data.commands import COMMANDS
-
-def show_help():
+def show_help(COMMANDS):
+    from data.commands import COMMANDS
     print("An open-source CLI tool designed to solve minor inconveniences: \n")
     print("ALL COMMANDS ARE NUMBERED (NUMERIC ALIASES)\n")
 
