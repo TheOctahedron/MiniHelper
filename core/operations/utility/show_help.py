@@ -11,5 +11,6 @@ def show_help():
     for cmd in sorted(text_commands):
         print(f"* {cmd}")
 
-    # Dispatch should not print None
-    return "\nEND OF COMMANDS."
+    print("\nEND OF COMMANDS.")
+
+    return ""
