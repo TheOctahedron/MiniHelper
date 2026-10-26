@@ -2,6 +2,7 @@ from core import show_help, plus, minus, divide, multiply
 
 COMMANDS = {
     "help": show_help,
+
     "plus": plus,
     "minus": minus,
     "divide": divide, 
@@ -10,5 +11,8 @@ COMMANDS = {
 
 # Generate numeric aliases
 # Copy the dictionary so we can safely iterate and add to it
-for index, func in enumerate(COMMANDS.copy().values(), start=1):
-    COMMANDS[str(index)] = func
+counter = 1
+for key, func in COMMANDS.copy().items():
+    if key != "help":
+        COMMANDS[str(counter)] = func
+        counter += 1
