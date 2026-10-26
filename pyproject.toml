@@ -13,6 +13,9 @@ authors = [
 ]
 dependencies = []
 
+[project.optional-dependencies]
+dev = ["pytest"]
+
 [project.scripts]
 minihelper = "main:main"
 
