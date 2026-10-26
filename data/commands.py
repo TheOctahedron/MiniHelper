@@ -1,7 +1,7 @@
 from core import show_help, plus, minus, divide, multiply
 
 COMMANDS = {
-    "show_help": show_help,
+    "help": show_help,
     "plus": plus,
     "minus": minus,
     "divide": divide, 
