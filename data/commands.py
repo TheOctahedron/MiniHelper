@@ -1,4 +1,7 @@
-from core import show_help, plus, minus, divide, multiply
+from core import (
+    show_help, 
+    plus, minus, divide, multiply, raise_to_power,
+)
 
 COMMANDS = {
     "help": show_help,
@@ -6,7 +9,8 @@ COMMANDS = {
     "plus": plus,
     "minus": minus,
     "divide": divide, 
-    "multiply": multiply
+    "multiply": multiply,
+    "raise_to_power": raise_to_power,
 }
 
 # Generate numeric aliases
