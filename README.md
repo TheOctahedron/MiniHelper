@@ -40,9 +40,15 @@ MiniHelper/
 │       │   ├── plus.py      ← def plus(a, b): return a + b
 │       │   ├── minus.py     ← def minus(a, b): return a - b
 │       │   ├── multiply.py  ← def multiply(a, b): return a * b
-│       │   └── divide.py    ← def divide(a, b): return a / b
+│       │   ├── divide.py    ← def divide(a, b): return a / b
+│       │   └── ...          ← etc.
 │       │
-│       └── ...              ← Future operation categories (e.g., string_ops)
+│       ├── utility/         ← Utility commands
+│       │   ├── __init__.py  ← Exposes functions via `__all__`
+│       │   ├── show_help.py ← Prints all available commands
+│       │   └── ...          ← etc.
+│       │
+│       └── ...              ← Other operation categories.
 │
 └── tests/                   ← Automated tests
 ```
