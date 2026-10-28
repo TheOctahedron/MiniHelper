@@ -1,6 +1,8 @@
 from core import (
     show_help, 
-    plus, minus, divide, multiply, raise_to_power,
+
+    plus, minus, divide, multiply, 
+    raise_to_power, percent
 )
 
 COMMANDS = {
@@ -11,6 +13,8 @@ COMMANDS = {
     "divide": divide, 
     "multiply": multiply,
     "raise_to_power": raise_to_power,
+    "percent": percent,
+    
 }
 
 # Generate numeric aliases
