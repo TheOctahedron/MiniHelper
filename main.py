@@ -1,8 +1,10 @@
 import argparse
 from core.dispatcher import dispatch
+from core import title_display
 
 def main():
-    print("--- MiniHelper ---")
+    if title_display == True:
+        print("--- MiniHelper ---")
 
     # Create parser.
     parser = argparse.ArgumentParser(description="MiniHelper-CLI")
