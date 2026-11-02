@@ -1,5 +1,5 @@
 from core import (
-    show_help, title_display,
+    show_help, change_display_title,
 
     plus, minus, divide, multiply, 
     raise_to_power, percent
@@ -7,7 +7,7 @@ from core import (
 
 COMMANDS = {
     "help": show_help,
-    "title_display": title_display,
+    "change_display_title": change_display_title,
 
     "plus": plus,
     "minus": minus,
