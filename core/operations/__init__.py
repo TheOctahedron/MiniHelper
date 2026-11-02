@@ -3,10 +3,10 @@ from core.operations.arithmetic import (
     raise_to_power, percent,
     
 )
-from core.operations.utility import show_help, title_display
+from core.operations.utility import show_help, change_display_title
 
 __all__ = [
-    "show_help", "title_display",
+    "show_help", "change_display_title",
 
     "plus", "minus", "multiply", "divide", 
     "raise_to_power", "percent",

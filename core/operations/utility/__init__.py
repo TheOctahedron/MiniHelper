@@ -1,4 +1,4 @@
 from core.operations.utility.show_help import show_help
-from core.operations.utility.title_display import title_display
+from core.operations.utility.change_display_title import change_display_title
 
-__all__ = ["show_help", "title_display"]
+__all__ = ["show_help", "change_display_title"]
