@@ -1,6 +1,7 @@
 import argparse, os, json
 from core.dispatcher import dispatch
 
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 CONFIG_PATH = os.path.join("data", "config.json")
 
 def main():
@@ -12,6 +13,9 @@ def main():
             show_title = config.get("display_title", True)
     except Exception as e:
         print(f"ERROR: {e}")
+
+        # Create the 'data' dir if it doesn't exist.
+        os.makedirs(os.path.dirname(CONFIG_PATH), exist_ok = True)
 
         # Open and write the default configuration to the 'config.json'.
         with open(CONFIG_PATH, "w", encoding="utf-8") as f:
