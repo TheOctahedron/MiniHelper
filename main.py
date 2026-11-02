@@ -1,9 +1,23 @@
-import argparse
+import argparse, os, json
 from core.dispatcher import dispatch
-from core import title_display
+
+CONFIG_PATH = os.path.join("data", "config.json")
 
 def main():
-    if title_display == True:
+    show_title = True # Default value.
+    try:
+        # Read the current configuation from the JSON file, and load this in var 'config'.
+        with open(CONFIG_PATH, "r", encoding="utf-8") as f:
+            config = json.load(f)
+            show_title = config.get("display_title", True)
+    except Exception as e:
+        print(f"ERROR: {e}")
+
+        # Open and write the default configuration to the 'config.json'.
+        with open(CONFIG_PATH, "w", encoding="utf-8") as f:
+            json.dump({"display_title": True}, f, indent=4)
+
+    if show_title:
         print("--- MiniHelper ---")
 
     # Create parser.
