@@ -16,7 +16,7 @@ def show_help(*args):
                 numeric_aliase = key
 
 
-        print(f"* {cmd_name:<15} ({numeric_aliase})")
+        print(f"* {cmd_name:<20} ({numeric_aliase})")
         
 
     print("\nEND OF COMMANDS.")
