@@ -1,6 +1,8 @@
 # MiniHelper (Python Edition, CLI)
 **An open-source CLI tool designed to solve minor inconveniences. It is simple and practical: just run the minihelper command followed by an operation and the required data from any terminal location. Installation and usage instructions are provided below.**
 
+![alt text](docs/minihelper.png)
+
 ### Installation
 To install MiniHelper locally in editable mode, run:
 ```bash
