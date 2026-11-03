@@ -1,8 +1,17 @@
-import argparse, os, json
+import argparse, json, sys
+from pathlib import Path
 from core.dispatcher import dispatch
 
-BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-CONFIG_PATH = os.path.join("data", "config.json")
+"""
+'__file__' is a special module variable. It contains the path to the file in which it is defined.
+'Path(__file__)' converts a string into a pathlib.Path object.
+'.resolve()' returns the absolute path of the file.
+'.parent' returns the parent directory of the file.
+"""
+
+BASE_DIR = Path(__file__).resolve().parent
+CONFIG_PATH = BASE_DIR / "data" /"config.json"
+
 
 def main():
     show_title = True # Default value.
@@ -11,11 +20,11 @@ def main():
         with open(CONFIG_PATH, "r", encoding="utf-8") as f:
             config = json.load(f)
             show_title = config.get("display_title", True)
-    except Exception as e:
-        print(f"ERROR: {e}")
+    except (FileNotFoundError, json.JSONDecodeError) as e:
+        print(f"ERROR: {e}", file=sys.stderr)
 
-        # Create the 'data' dir if it doesn't exist.
-        os.makedirs(os.path.dirname(CONFIG_PATH), exist_ok = True)
+        # Create the parent directory for the 'config.json' file if it doesn't exist.
+        CONFIG_PATH.parent.mkdir(parents=True, exist_ok=True)
 
         # Open and write the default configuration to the 'config.json'.
         with open(CONFIG_PATH, "w", encoding="utf-8") as f:
@@ -50,10 +59,12 @@ def main():
         a = args.a
         b = args.b 
 
-        match cmd_key:
-            case "help":
+        match a, b:
+            case (None, None): # For 0 argument commands.
                 result = dispatch(cmd_key)
-            case _:
+            case (_, None): # For 1 argument commands .
+                result = dispatch(cmd_key, a)
+            case _: # For 2 argument commands.
                 result = dispatch(cmd_key, a, b)
 
 
@@ -64,8 +75,13 @@ def main():
             else:
                 print(result)
 
-    except Exception as e:
-        print(f"ERROR: {e}")
+    except (ValueError, KeyError, TypeError) as e:
+        """
+        'file=sys.stderr' separates the error from what should go into the standart output (stdout).
+        'sys.exit(1)' indicates that the program has exited with an error code (1).
+        """
+        print(f"ERROR: {e}", file=sys.stderr)
+        sys.exit(1)
 
 
 if __name__ == "__main__":
