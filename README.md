@@ -15,6 +15,11 @@ Once installed, you can use the tool from anywhere in your terminal:
 minihelper plus 5 3
 # Output: 8
 ```
+OR
+```bash
+mh plus 5 3
+# Output: 8
+```
 ---
 ### Architecture
 
