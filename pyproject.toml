@@ -18,6 +18,7 @@ dev = ["pytest"]
 
 [project.scripts]
 minihelper = "main:main"
+mh = "main:main"
 
 [tool.setuptools]
 py-modules = ["main"]
