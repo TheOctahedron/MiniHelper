@@ -43,11 +43,11 @@ def main():
     "\nNeed help? Enter 'minihelper HELP'") 
 
     # 'a' argument (the first one).
-    parser.add_argument("a", type=float, nargs="?", help="Enter argument 'a' (the first one) " \
+    parser.add_argument("a", type=str, nargs="?", help="Enter argument 'a' (the first one) " \
     "required for the command.")
 
     # 'b' argument (the second one).
-    parser.add_argument("b", type=float, nargs="?", help="Enter argument 'b' (the second one) " \
+    parser.add_argument("b", type=str, nargs="?", help="Enter argument 'b' (the second one) " \
     "required for the command.")
 
 
