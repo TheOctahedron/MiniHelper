@@ -68,3 +68,10 @@ MiniHelper uses the Facade pattern to keep imports clean and simple.
 - `core/operations/__init__.py` — collects exports from its subdirectories (e.g., `arithmetic`) into a single interface.
 
 - `core/__init__.py` — the primary facade for the entire core. It exposes all operations (and future modules) to the rest of the application.
+---
+### Testing
+To run the test suite, **install the dev dependencies and run pytest**:
+```bash
+pip install -e ".[dev]"
+pytest -v
+```
