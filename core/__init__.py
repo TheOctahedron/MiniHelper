@@ -4,6 +4,8 @@ from core.operations import (
     plus, minus, multiply, divide, 
     raise_to_power, percent, 
 
+    txt_lower, txt_reverse, txt_upper,
+
 )
 
 __all__ = [
@@ -11,5 +13,7 @@ __all__ = [
 
     "plus", "minus", "multiply", "divide", 
     "raise_to_power", "percent",
+
+    "txt_lower", "txt_reverse", "txt_upper",
 
 ]

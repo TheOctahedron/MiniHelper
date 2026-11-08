@@ -2,7 +2,10 @@ from core import (
     show_help, change_display_title,
 
     plus, minus, divide, multiply, 
-    raise_to_power, percent
+    raise_to_power, percent,
+
+    txt_lower, txt_reverse, txt_upper,
+
 )
 
 COMMANDS = {
@@ -15,6 +18,10 @@ COMMANDS = {
     "multiply": multiply,
     "raise_to_power": raise_to_power,
     "percent": percent,
+
+    "txt_lower": txt_lower,
+    "txt_reverse": txt_reverse, 
+    "txt_upper": txt_upper,
     
 }
 
