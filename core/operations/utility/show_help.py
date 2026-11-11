@@ -1,24 +1,41 @@
 def show_help(*args):
     from data.commands import COMMANDS
-    print("An open-source CLI tool designed to solve minor inconveniences: \n")
-    print("ALL COMMANDS ARE NUMBERED (NUMERIC ALIASES)\n")
 
-    # Use only the text-based command keys, not the numeric aliases.
-    text_commands = [key for key in COMMANDS.keys() if not key.isdigit() and key != "help"] 
+    # Command key = Command name 
 
-    # Sort and print all text-based command keys, and numeric aliases
-    for cmd_name in sorted(text_commands):
-        numeric_aliase = "?"
-        
-        for key in COMMANDS.keys(): # Search all keys
-            # Check if the key is a digit AND if it points to the same function as cmd_name
-            if key.isdigit() and COMMANDS[key] == COMMANDS[cmd_name]:
+    print("Usage: ")
+    print("minihelper <command> [args]")
+    print("mh <command> [args]")
+
+    # Identify suitable commands for help output, store in 'saved_commands', excluding digit names and 'help'.
+    saved_commands = [command_key for command_key in COMMANDS.keys() 
+        if not command_key.isdigit() and command_key != "help"]
+
+    print("COMMANDS:")
+
+    # We begin a loop for each CLI command.
+    for command_key in sorted(saved_commands):
+        command = COMMANDS[command_key]
+
+        numeric_aliase = "?" # The value is initially set to "?" in case it is not found.
+
+        # Searching for a numeric alias in the COMMANDS keys
+        for key in COMMANDS.keys():
+            if key.isdigit() and COMMANDS[key]["command_function"] == command["command_function"]:
                 numeric_aliase = key
+                break
 
+        # We are not using the more appropriate name "command_key" so as to avoid any confusion.
 
-        print(f"* {cmd_name:<20} ({numeric_aliase})")
-        
+        # Display all information about the CLI command
+        print("\n")
+        print(f"* {command_key} ({numeric_aliase})")
+        print(f"[{command['description']}]")
 
-    print("\nEND OF COMMANDS.")
+        if "formula" in command:
+            print(f"[{command['formula']}]")
 
-    return ""
+    # A reminder about the "help" command
+    print("\nhelp - show all commands")
+    print("END OF COMMANDS.")
+    return

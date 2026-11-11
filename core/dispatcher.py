@@ -1,8 +1,8 @@
 from data.commands import COMMANDS
 
-def dispatch(cmd_key, *args):
-    if cmd_key not in COMMANDS:
-        raise ValueError("Command not found."
+def dispatch(command_key, *args):
+    if command_key not in COMMANDS:
+        raise KeyError("Command not found."
         "\nNeed help? Enter 'minihelper HELP'")
 
-    return COMMANDS[cmd_key](*args) # Searching command by key.
+    return COMMANDS[command_key]["command_function"](*args) # Searching command by key "command_function".
