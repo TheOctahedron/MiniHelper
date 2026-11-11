@@ -11,7 +11,7 @@ def show_help(*args):
     saved_commands = [command_key for command_key in COMMANDS.keys() 
         if not command_key.isdigit() and command_key != "help"]
 
-    print("COMMANDS:")
+    print("ALL COMMANDS ARE NUMBERED (NUMERIC ALIASES)")
 
     # We begin a loop for each CLI command.
     for command_key in sorted(saved_commands):
