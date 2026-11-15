@@ -1,6 +1,6 @@
 import pytest
 
-# Import all arithmetic functions.
+# Import all text functions.
 from core.operations.text import txt_lower, txt_reverse, txt_upper
 
 print("===============================")
