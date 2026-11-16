@@ -1,67 +1,63 @@
-def show_help(a=""):
+def show_help(passed_group=""): 
     from data import ALL_COMMANDS, ALL_GROUPS
-    selected_group = str(a).upper()
 
-    # ===================================
+    def show_all_groups():
+        print()
+        for group_key in ALL_GROUPS.keys(): # Take the keys for all groups for output
+            print(f"* {group_key.removesuffix('_GROUP')}") # Beautiful output without a suffix
+        print("* ALL") # Sign ALL, since it is not in ALL_GROUPS
 
-    print("Usage: ")
-    print(" minihelper <command> [args]")
-    print(" mh <command> [args]")
-    print("\n")
+        print("Usage: minihelper help <group_key>")
+        return ""
 
-    if selected_group in ALL_GROUPS.keys():
-        print(f"SELECTED GROUP: {selected_group}")
-        group_commands = ALL_GROUPS[selected_group]
+    # Add uppercase letters (this is necessary for finding the function in ALL_GROUPS) and convert to a str.
+    passed_group = str(passed_group or "").upper() 
+    match passed_group:
+        case "":
+            return show_all_groups()
+        case "ALL":
+            selected_group = "ALL"
+        case _:
+            selected_group = passed_group + "_GROUP" # Add the necessary suffix.
 
-    elif selected_group in ["ALL_GROUPS", "ALL"]:
-        group_commands = ALL_COMMANDS
+
+    print("Usage: can use 'mh' instead of 'minihelper'\n")
+
+    if selected_group in ALL_GROUPS.keys(): # Check if selected group exists
+        selected_group = ALL_GROUPS[selected_group]
+
+    elif selected_group == "ALL":
+        selected_group = ALL_COMMANDS
 
     else:
-        print("All CLI COMMANDS GROUP KEYS")
-        for group_key in ALL_GROUPS.keys():
-            print(f"* {group_key}")
-        print("* ALL_COMMANDS/ALL")
-        print("\nEND OF COMMANDS GROUPS KEYS")
+        print()
+        print("This Group is not found.")
+        return show_all_groups()
 
 
-        print("\n")
-        print("Usage to get information about each command in the selected group: ")
-        print(" minihelper help <group_key>")
-        print(" mh help <group_key>")
-        return 
+    print("Usage: minihelper <command> [args]")
 
-    # ===================================
 
-    # Command Key = Command Name
-    # Identify suitable commands for help output, store in 'saved_commands', excluding digit names and 'help'
-    saved_commands = [command_key for command_key in group_commands.keys() 
-        if not command_key.isdigit() and command_key != "help"]
+    saved_numeric_aliases = [numeric_aliase for numeric_aliase in selected_group 
+        if numeric_aliase.isdigit()]
+    
+    saved_numeric_aliases.sort(key=int) # Sort like integer.
 
-    print("ALL COMMANDS ARE NUMBERED (NUMERIC ALIASES)")
 
-    # We begin a loop for each CLI command.
-    for command_key in sorted(saved_commands):
-        command = group_commands[command_key]
+    print("ALL COMMANDS. ALL ARE NUMBERED (NUMERIC ALIASES)\n")
 
-        numeric_aliase = "?" # The value is initially set to "?" in case it is not found
+    for numeric_alias in saved_numeric_aliases:
+        command_value = selected_group[numeric_alias] # Find the command value using a numeric alias.
 
-        # Searching for a numeric alias in the COMMANDS keys
-        for key in group_commands.keys():
-            if key.isdigit() and group_commands[key]["command_function"] == command["command_function"]:
-                numeric_aliase = key
+        for key, value in selected_group.items():
+            # Check whether this key is a numeric alias and whether it is appropriate for the function.
+            if not key.isdigit() and command_value['command_function'] == value['command_function']:
+                command_key = key
                 break
 
-        # We are not using the more appropriate name "command_key" so as to avoid any confusion
-
-        # Display all information about the CLI command
-        print("\n")
-        print(f"* {command_key} ({numeric_aliase})")
-        print(f"[{command['description']}]")
-
-        if "formula" in command:
-            print(f"[{command['formula']}]")
-
-    # A reminder about the "help" command
-    print("\nhelp - show all commands")
-    print("END OF COMMANDS.")
-    return
+        print(f"* {command_key:<20} ({numeric_alias})")
+        print(f"  {command_value['description']}")
+        if "formula" in command_value: # Checking whether this command has a formula.
+            print(f"  {command_value['formula']}")
+        print("---")
+    return ""
