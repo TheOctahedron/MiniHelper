@@ -36,6 +36,8 @@ MiniHelper/
 │   ├── __init__.py          ← Package initializer
 │   └── commands.py          ← COMMANDS dictionary mapping keys to core functions
 │
+├── docs/                    ← Containing images and other assets for the docs CLI
+│
 ├── core/                    ← Core logic
 │   ├── __init__.py          ← Primary facade (aggregates operations via `__all__`)
 │   ├── dispatcher.py        ← Routes command name to the correct function
