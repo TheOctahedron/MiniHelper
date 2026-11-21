@@ -4,14 +4,14 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "minihelper"
-version = "0.1.0"
+version = "0.2.0"
 description = "A simple yet useful CLI-based assistant that provides results via a short command."
 readme = "README.md"
-requires-python = ">=3.8"
+requires-python = ">=3.10"
 authors = [
     { name = "Joseph", email = "joseph.octahedron@gmail.com" }
 ]
-dependencies = []
+dependencies = ["httpx"]
 
 [project.optional-dependencies]
 dev = ["pytest"]
