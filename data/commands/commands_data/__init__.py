@@ -1,11 +1,13 @@
 from data.commands.add_numeric_aliases import add_numeric_aliases
 
+from data.commands.commands_data.api_commands import API_COMMANDS
 from data.commands.commands_data.arithmetic_commands import ARITHMETIC_COMMANDS
 from data.commands.commands_data.text_commands import TEXT_COMMANDS
 from data.commands.commands_data.utility_commands import UTILITY_COMMANDS
 
 # Create dict for all CLI commands groups 
 ALL_GROUPS = {
+    "API_COMMANDS": API_COMMANDS,
     "ARITHMETIC_GROUP": ARITHMETIC_COMMANDS,
     "TEXT_GROUP": TEXT_COMMANDS,
     "UTILITY_GROUP": UTILITY_COMMANDS,
