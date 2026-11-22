@@ -25,41 +25,47 @@ mh plus 5 3
 
 ```text
 MiniHelper/
-├── main.py                  ← CLI entry point (argparse + dispatch)
-├── pyproject.toml           ← Project configuration, dependencies, and pytest setup
-├── README.md                ← Project documentation
-├── LICENSE                  ← Open-source license (MIT)
-├── .gitignore               ← Git ignore rules (e.g., __pycache__, .venv)
-├── .gitattributes           ← Git line ending normalization
+├── main.py                             ← CLI entry point (argparse + dispatch)
+├── pyproject.toml                      ← Project configuration, dependencies, and pytest setup
+├── README.md                           ← Project documentation
+├── LICENSE                             ← Open-source license (MIT)
+├── .gitignore                          ← Git ignore rules (e.g., __pycache__, .venv)
+├── .gitattributes                      ← Git line ending normalization
 │
-├── data/                    ← Data & registries (non-code)
-│   ├── __init__.py          ← Package initializer
-│   └── commands.py          ← COMMANDS dictionary mapping keys to core functions
+├── data/                               ← Data & registries (non-code)
+│   ├── __init__.py                     ← Package initializer
+│   └── commands/                       ← All data about the all commands.
+│       ├── __init__.py                 ← Package initializer
+│       ├── add_numeric_aliases.py      ← A function that assigns numeric aliases to a given set of commands
+│       └── commands_data/              ← A folder that stores information about each group of commands
+│           ├── __init__.py             ← Package initializer
+│           ├── arithmetic_commands.py  ← Information about each arithmetic command
+│           └── ...                     ← etc.
 │
-├── docs/                    ← Containing images and other assets for the docs CLI
+├── docs/                               ← Containing images and other assets for the docs CLI
 │
-├── core/                    ← Core logic
-│   ├── __init__.py          ← Primary facade (aggregates operations via `__all__`)
-│   ├── dispatcher.py        ← Routes command name to the correct function
-│   └── operations/          ← Actual operation functions
-│       ├── __init__.py      ← Exposes subdirectories (arithmetic, etc.)
+├── core/                               ← Core logic
+│   ├── __init__.py                     ← Primary facade (aggregates operations via `__all__`)
+│   ├── dispatcher.py                   ← Routes command name to the correct function
+│   └── operations/                     ← Actual operation functions
+│       ├── __init__.py                 ← Exposes subdirectories (arithmetic, etc.)
 │       │
-│       ├── arithmetic/      ← Math operations
-│       │   ├── __init__.py  ← Exposes functions via `__all__`
-│       │   ├── plus.py      ← def plus(a, b): return a + b
-│       │   ├── minus.py     ← def minus(a, b): return a - b
-│       │   ├── multiply.py  ← def multiply(a, b): return a * b
-│       │   ├── divide.py    ← def divide(a, b): return a / b
-│       │   └── ...          ← etc.
+│       ├── arithmetic/                 ← Math operations
+│       │   ├── __init__.py             ← Exposes functions via `__all__`
+│       │   ├── plus.py                 ← def plus(a, b): return a + b
+│       │   ├── minus.py                ← def minus(a, b): return a - b
+│       │   ├── multiply.py             ← def multiply(a, b): return a * b
+│       │   ├── divide.py               ← def divide(a, b): return a / b
+│       │   └── ...                     ← etc.
 │       │
-│       ├── utility/         ← Utility commands
-│       │   ├── __init__.py  ← Exposes functions via `__all__`
-│       │   ├── show_help.py ← Prints all available commands
-│       │   └── ...          ← etc.
+│       ├── utility/                    ← Utility commands
+│       │   ├── __init__.py             ← Exposes functions via `__all__`
+│       │   ├── show_help.py            ← Prints all available commands
+│       │   └── ...                     ← etc.
 │       │
-│       └── ...              ← Other operation categories.
+│       └── ...                         ← Other operation categories.
 │
-└── tests/                   ← Automated tests
+└── tests/                              ← Automated tests
 ```
 ---
 ### Facade Pattern
