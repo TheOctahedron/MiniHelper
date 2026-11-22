@@ -14,7 +14,10 @@ from core.operations.text import (
 
 )
 
+from core.operations.api import (
+    run_api,
 
+)
 
 __all__ = [
     "show_help", "change_display_title",
@@ -23,5 +26,7 @@ __all__ = [
     "raise_to_power", "percent",
 
     "txt_lower", "txt_upper", "txt_reverse",
+
+    "run_api",
     
 ]

@@ -6,6 +6,8 @@ from core.operations import (
 
     txt_lower, txt_reverse, txt_upper,
 
+    run_api,
+
 )
 
 __all__ = [
@@ -16,4 +18,6 @@ __all__ = [
 
     "txt_lower", "txt_reverse", "txt_upper",
 
+    "run_api",
+    
 ]
