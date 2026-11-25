@@ -18,8 +18,8 @@ def run_api(api_key, url):
         )
         response.raise_for_status() # Check the HTTP response status
 
-    except httpx.HTTPError as e:
-        print(f"ERROR: {e}")
+    except httpx.HTTPError as error:
+        print(f"ERROR: {error}")
         return None
 
     return format_response(response)

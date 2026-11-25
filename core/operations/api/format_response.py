@@ -16,8 +16,8 @@ def format_response(response):
         case "1":
             try:
                 return response.json() # Send it in JSON format.
-            except ValueError as e:
-                print(f"ERROR: {e}")
+            except ValueError as error:
+                print(f"ERROR: {error}")
                 print("Unknown format. Returning full response.")
                 return get_full_response(response) # Send it in full format.
         

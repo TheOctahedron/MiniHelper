@@ -20,8 +20,8 @@ def main():
         with open(CONFIG_PATH, "r", encoding="utf-8") as f:
             config = json.load(f)
             show_title = config.get("display_title", True)
-    except (FileNotFoundError, json.JSONDecodeError) as e:
-        print(f"ERROR: {e}", file=sys.stderr)
+    except (FileNotFoundError, json.JSONDecodeError) as error:
+        print(f"ERROR: {error}", file=sys.stderr)
 
         # Create the parent directory for the 'config.json' file if it doesn't exist.
         CONFIG_PATH.parent.mkdir(parents=True, exist_ok=True)
@@ -75,12 +75,12 @@ def main():
             else:
                 print(result)
 
-    except (ValueError, KeyError, TypeError) as e:
+    except (ValueError, KeyError, TypeError) as error:
         """
         'file=sys.stderr' separates the error from what should go into the standart output (stdout).
         'sys.exit(1)' indicates that the program has exited with an error code (1).
         """
-        print(f"ERROR: {e}", file=sys.stderr)
+        print(f"ERROR: {error}", file=sys.stderr)
         sys.exit(1)
 
 
