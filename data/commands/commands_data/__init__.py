@@ -7,7 +7,7 @@ from data.commands.commands_data.utility_commands import UTILITY_COMMANDS
 
 # Create dict for all CLI commands groups 
 ALL_GROUPS = {
-    "API_COMMANDS": API_COMMANDS,
+    "API_GROUP": API_COMMANDS,
     "ARITHMETIC_GROUP": ARITHMETIC_COMMANDS,
     "TEXT_GROUP": TEXT_COMMANDS,
     "UTILITY_GROUP": UTILITY_COMMANDS,
