@@ -15,7 +15,7 @@ from core.operations.text import (
 )
 
 from core.operations.api import (
-    run_api,
+    run_api, exchange_rate, 
 
 )
 

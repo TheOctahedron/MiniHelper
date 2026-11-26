@@ -6,7 +6,7 @@ from core.operations import (
 
     txt_lower, txt_reverse, txt_upper,
 
-    run_api,
+    run_api, exchange_rate,
 
 )
 
