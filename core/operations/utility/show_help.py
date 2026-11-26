@@ -55,9 +55,11 @@ def show_help(passed_group=""):
                 command_key = key
                 break
 
+        print("---")
         print(f"* {command_key:<20} ({numeric_alias})")
         print(f"  {command_value['description']}")
         if "formula" in command_value: # Checking whether this command has a formula.
             print(f"  {command_value['formula']}")
-        print("---")
+
+    print("---")
     return ""
