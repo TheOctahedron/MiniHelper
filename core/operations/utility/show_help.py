@@ -7,7 +7,7 @@ def show_help(passed_group=""):
             print(f"* {group_key.removesuffix('_GROUP')}") # Beautiful output without a suffix
         print("* ALL") # Sign ALL, since it is not in ALL_GROUPS
 
-        print("Usage: minihelper help <group_key>")
+        print("\nUsage: minihelper help <group_key>")
         return ""
 
     # Add uppercase letters (this is necessary for finding the function in ALL_GROUPS) and convert to a str.
@@ -44,7 +44,7 @@ def show_help(passed_group=""):
     saved_numeric_aliases.sort(key=int) # Sort like integer.
 
 
-    print("ALL COMMANDS. ALL ARE NUMBERED (NUMERIC ALIASES)\n")
+    print("\nALL COMMANDS. ALL ARE NUMBERED (NUMERIC ALIASES)\n")
 
     for numeric_alias in saved_numeric_aliases:
         command_value = selected_group[numeric_alias] # Find the command value using a numeric alias.
